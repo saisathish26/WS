@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work Samples — Sathishkumar Eswaramoorthy · Instructional Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --cream: #f5f0e8;
+    --warm: #e8dfc8;
+    --gold: #c8933a;
+    --gold-light: #e8b85a;
+    --rust: #b84c2a;
+    --teal: #1a5c5a;
+    --teal-light: #2a8a86;
+    --text-muted: #6b6456;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(245,240,232,0.94); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(200,147,58,0.2);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--ink); }
+  .nav-logo span { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
+  .nav-back { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+  .nav-back svg { width: 12px; height: 12px; }
+
+  /* ── HERO BANNER ── */
+  .page-hero {
+    min-height: 42vh;
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    padding-top: 5rem;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0; height: 60px;
+    background: var(--cream);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+  .hero-text {
+    padding: 3.5rem 3rem 4.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+  .hero-eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--gold); }
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    opacity: 0; animation: fadeUp 0.6s ease 0.22s forwards;
+  }
+  .page-title em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.58);
+    max-width: 440px;
+    opacity: 0; animation: fadeUp 0.6s ease 0.34s forwards;
+  }
+  /* Right side decorative panel */
+  .hero-deco {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-deco-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a1008 0%, #0f0e0c 60%);
+  }
+  .hero-deco-initials {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 16rem;
+    font-weight: 900;
+    color: rgba(200,147,58,0.05);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .hero-stat-row {
+    position: absolute;
+    bottom: 3.5rem; left: 3rem;
+    display: flex; gap: 3rem;
+    z-index: 2;
+    opacity: 0; animation: fadeUp 0.6s ease 0.46s forwards;
+  }
+  .hstat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--cream); line-height: 1;
+    display: block;
+  }
+  .hstat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(200,147,58,0.7);
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-section {
+    background: var(--cream);
+    padding: 2.5rem 4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .filter-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--text-muted);
+  }
+  .filter-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(200,147,58,0.25);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+  /* ── GRID ── */
+  .samples-section {
+    padding: 3rem 4rem 6rem;
+    background: var(--cream);
+  }
+  .samples-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+
+  /* ── SAMPLE CARD ── */
+  .sample-card {
+    background: #fff;
+    border: 1px solid rgba(200,147,58,0.12);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.28s cubic-bezier(.2,0,.2,1), box-shadow 0.28s;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: cardIn 0.5s ease forwards;
+  }
+  .sample-card:nth-child(1) { animation-delay: 0.05s; }
+  .sample-card:nth-child(2) { animation-delay: 0.12s; }
+  .sample-card:nth-child(3) { animation-delay: 0.19s; }
+  .sample-card:nth-child(4) { animation-delay: 0.26s; }
+  .sample-card:nth-child(5) { animation-delay: 0.33s; }
+  .sample-card:nth-child(6) { animation-delay: 0.40s; }
+  .sample-card:nth-child(7) { animation-delay: 0.47s; }
+  .sample-card:nth-child(8) { animation-delay: 0.54s; }
+
+  @keyframes cardIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .sample-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(15,14,12,0.13);
+  }
+
+  /* Top accent bar — coloured by category */
+  .sample-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s;
+  }
+  .sample-card:hover::before { transform: scaleX(1); }
+
+  /* Card number watermark */
+  .card-num {
+    position: absolute; top: 1rem; right: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; font-weight: 900;
+    color: rgba(15,14,12,0.04);
+    line-height: 1; pointer-events: none;
+  }
+
+  /* Thumbnail / preview area */
+  .card-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg, #f7f2ea);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-thumb-icon {
+    font-size: 4rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+    transition: transform 0.3s;
+  }
+  .sample-card:hover .card-thumb-icon {
+    transform: scale(1.1) translateY(-3px);
+  }
+  .card-thumb-label {
+    position: absolute; bottom: 0.7rem; right: 0.9rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    background: rgba(0,0,0,0.35);
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 1.6rem 1.6rem 1.4rem;
+    display: flex; flex-direction: column; flex: 1;
+  }
+  .card-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--card-accent, var(--gold));
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+  .card-type::before { content: ''; width: 12px; height: 1px; background: currentColor; display: inline-block; }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.7rem;
+    color: var(--ink);
+  }
+  .card-desc {
+    font-size: 0.83rem; line-height: 1.72; color: var(--text-muted);
+    margin-bottom: 1.2rem; flex: 1;
+  }
+  .card-tags {
+    display: flex; flex-wrap: wrap; gap: 0.35rem;
+    margin-bottom: 1.3rem;
+  }
+  .card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 0.22rem 0.55rem;
+    background: var(--warm); color: var(--text-muted);
+    border: 1px solid rgba(200,147,58,0.15);
+    transition: all 0.2s;
+  }
+  .sample-card:hover .card-tag { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+  /* Launch button */
+  .card-launch {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    padding: 0.65rem 1.1rem;
+    border: 1.5px solid var(--ink);
+    transition: all 0.25s;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-launch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    transform: translateX(-101%);
+    transition: transform 0.28s cubic-bezier(.4,0,.2,1);
+    z-index: 0;
+  }
+  .card-launch:hover::after { transform: translateX(0); }
+  .card-launch span, .card-launch svg { position: relative; z-index: 1; }
+  .card-launch:hover span, .card-launch:hover svg { color: var(--cream); }
+  .card-launch svg { width: 11px; height: 11px; transition: transform 0.2s; }
+  .card-launch:hover svg { transform: translateX(3px); }
+
+  /* ── FEATURED CARD (full-width) ── */
+  .sample-card.featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    min-height: 240px;
+  }
+  .sample-card.featured .card-thumb {
+    width: 340px; height: auto; flex-shrink: 0;
+    border-radius: 0;
+  }
+  .sample-card.featured .card-thumb-icon { font-size: 5rem; }
+  .sample-card.featured .card-body { padding: 2.2rem 2.4rem; }
+  .sample-card.featured .card-title { font-size: 1.4rem; }
+  .featured-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+    background: var(--gold); color: var(--ink);
+    padding: 0.2rem 0.55rem;
+    margin-bottom: 0.7rem;
+    display: inline-block;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    padding: 0 4rem 1.5rem;
+    display: flex; align-items: center; gap: 1.2rem;
+  }
+  .section-divider-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--gold); white-space: nowrap;
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .section-divider-label::after { content: ''; width: 2.5rem; height: 1px; background: var(--gold); }
+  .section-divider hr { flex: 1; border: none; border-top: 1px solid rgba(200,147,58,0.15); }
+
+  /* ── CONTACT STRIP ── */
+  .contact-strip {
+    background: var(--ink);
+    padding: 4rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+  }
+  .contact-strip-left h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700;
+    color: var(--cream); margin-bottom: 0.5rem;
+  }
+  .contact-strip-left h3 em { font-style: italic; color: var(--gold); }
+  .contact-strip-left p {
+    font-size: 0.9rem; line-height: 1.7;
+    color: rgba(245,240,232,0.5);
+  }
+  .contact-links {
+    display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: flex-end;
+  }
+  .contact-link {
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    text-decoration: none; color: var(--cream);
+    padding: 1.1rem 1.5rem;
+    border: 1px solid rgba(245,240,232,0.1);
+    min-width: 150px;
+    transition: border-color 0.25s, background 0.25s;
+    text-align: center;
+  }
+  .contact-link:hover { border-color: var(--gold); background: rgba(200,147,58,0.08); }
+  .contact-link-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--gold);
+  }
+  .contact-link-val { font-size: 0.8rem; color: rgba(245,240,232,0.75); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0907;
+    padding: 1.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    color: rgba(245,240,232,0.3);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+  }
+
+  /* ── HIDDEN CARD (for filter) ── */
+  .sample-card.hidden {
+    display: none;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .samples-grid { grid-template-columns: repeat(2, 1fr); }
+    .sample-card.featured { flex-direction: column; }
+    .sample-card.featured .card-thumb { width: 100%; height: 180px; }
+  }
+  @media (max-width: 750px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-label { display: none; }
+    .page-hero { grid-template-columns: 1fr; }
+    .hero-deco { display: none; }
+    .filter-section, .samples-section, .section-divider { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .samples-grid { grid-template-columns: 1fr; }
+    .sample-card.featured { grid-column: auto; }
+    .contact-strip { grid-template-columns: 1fr; }
+    .contact-links { justify-content: flex-start; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .hero-text { padding: 3rem 1.5rem 2.5rem; }
+    .hero-stat-row { position: static; margin-top: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">Sathish<span>.</span></a>
+  <div class="nav-right">
+    <span class="nav-label">Interactive Portfolio · Work Samples</span>
+
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Live Work Samples · Interactive Portfolio</div>
+    <h1 class="page-title">Work<br><em>Samples.</em></h1>
+    <p class="hero-sub">Eight live e-learning demos — each showcasing a distinct instructional design methodology. Click any card to experience it directly in your browser.</p>
+  </div>
+  <div class="hero-deco">
+    <div class="hero-deco-bg"></div>
+    <div class="hero-deco-initials">SE</div>
+    <div class="hero-stat-row">
+      <div>
+        <span class="hstat-num">8</span>
+        <span class="hstat-label">Live Demos</span>
+      </div>
+      <div>
+        <span class="hstat-num">6</span>
+        <span class="hstat-label">Methodologies</span>
+      </div>
+      <div>
+        <span class="hstat-num">10+</span>
+        <span class="hstat-label">Years Experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-section">
+  <span class="filter-label">Filter by —</span>
+  <button class="filter-btn active" data-filter="all" onclick="filterCards(this, 'all')">All</button>
+  <button class="filter-btn" data-filter="compliance" onclick="filterCards(this, 'compliance')">Compliance</button>
+  <button class="filter-btn" data-filter="elearning" onclick="filterCards(this, 'elearning')">eLearning</button>
+  <button class="filter-btn" data-filter="game" onclick="filterCards(this, 'game')">Game-Based</button>
+  <button class="filter-btn" data-filter="scenario" onclick="filterCards(this, 'scenario')">Scenario / Branching</button>
+  <button class="filter-btn" data-filter="simulation" onclick="filterCards(this, 'simulation')">Simulation</button>
+  <button class="filter-btn" data-filter="video" onclick="filterCards(this, 'video')">Video-Style</button>
+</div>
+
+<!-- ── SAMPLES GRID ── -->
+<div class="samples-section">
+
+  <div class="section-divider">
+    <span class="section-divider-label">Interactive Portfolio</span>
+    <hr>
+  </div>
+
+  <div class="samples-grid" id="samplesGrid">
+
+    <!-- 01 · GDPR -->
+    <div class="sample-card" data-category="compliance elearning" style="--card-accent:#c8933a; --card-bg: #f3ede0;">
+      <div class="card-num">01</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #1a1008 0%, #2d1e04 100%);">
+        <span class="card-thumb-icon">🔒</span>
+        <span class="card-thumb-label">9 modules · Certificate</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Compliance eLearning</div>
+        <h3 class="card-title">Data Privacy &amp; GDPR Compliance</h3>
+        <p class="card-desc">9-module compliance course covering GDPR principles, data subject rights, breach response, and a 5-question knowledge check — with a personalised downloadable certificate of completion.</p>
+        <div class="card-tags">
+          <span class="card-tag">Compliance</span>
+          <span class="card-tag">GDPR</span>
+          <span class="card-tag">Certificate</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/GDPR/gdpr-elearning-course" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 02 · Effective Communication -->
+    <div class="sample-card" data-category="elearning" style="--card-accent:#1a5c5a; --card-bg: #e8f2f2;">
+      <div class="card-num">02</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #0d2e2e 0%, #1a4a48 100%);">
+        <span class="card-thumb-icon">🗣️</span>
+        <span class="card-thumb-label">10 slides · Hotspots</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type" style="color: #1a5c5a;">eLearning Course</div>
+        <h3 class="card-title">Effective Communication at Work</h3>
+        <p class="card-desc">10-slide interactive course featuring hotspot activities, scenario-based quizzes, drag-and-drop interactions, and SBI feedback framework — built in Storyline style.</p>
+        <div class="card-tags">
+          <span class="card-tag">Interactive</span>
+          <span class="card-tag">Scenario-Based</span>
+          <span class="card-tag">Storyline-Style</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/Effective-Commu/elearning_communication" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 03 · CyberQuest -->
+    <div class="sample-card" data-category="game" style="--card-accent:#b84c2a; --card-bg: #f2e8e3;">
+      <div class="card-num">03</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #1a0800 0%, #3d1200 100%);">
+        <span class="card-thumb-icon">🎮</span>
+        <span class="card-thumb-label">5 zones · 12 trophies</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type" style="color: #b84c2a;">Game-Based Learning</div>
+        <h3 class="card-title">CyberQuest Security Adventure</h3>
+        <p class="card-desc">RPG-style cybersecurity awareness game with 5 challenge zones, inventory system, boss battle mechanics, and a 12-trophy achievement system.</p>
+        <div class="card-tags">
+          <span class="card-tag">Gamification</span>
+          <span class="card-tag">Cybersecurity</span>
+          <span class="card-tag">RPG-Style</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/Game-based/cyberquest_game" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 04 · Workplace Ethics -->
+    <div class="sample-card" data-category="scenario elearning" style="--card-accent:#6b3fa0; --card-bg: #f0eaf8;">
+      <div class="card-num">04</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #1a0930 0%, #2d1050 100%);">
+        <span class="card-thumb-icon">⚖️</span>
+        <span class="card-thumb-label">5 dilemmas · Trust Meter</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type" style="color: #6b3fa0;">Scenario-Based</div>
+        <h3 class="card-title">The Right Call — Workplace Ethics</h3>
+        <p class="card-desc">Branching scenario visual novel with 5 ethical dilemmas, a Trust Meter mechanic, CSS character illustrations, and a personalised certificate of completion.</p>
+        <div class="card-tags">
+          <span class="card-tag">Branching</span>
+          <span class="card-tag">Ethics</span>
+          <span class="card-tag">Visual Novel</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/Scenario-based/ethics_scenario_elearning" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 05 · Time Management -->
+    <div class="sample-card" data-category="video elearning" style="--card-accent:#1a5c5a; --card-bg: #e4f0ef;">
+      <div class="card-num">05</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #0a2020 0%, #143030 100%);">
+        <span class="card-thumb-icon">🎬</span>
+        <span class="card-thumb-label">9 scenes · Audio</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type" style="color: #1a5c5a;">Animated Video Course</div>
+        <h3 class="card-title">Time Management Mastery</h3>
+        <p class="card-desc">Vyond-style animated eLearning video with CSS characters, Web Audio background music, 9 animated scenes, and full playback and scene navigation controls.</p>
+        <div class="card-tags">
+          <span class="card-tag">Animation</span>
+          <span class="card-tag">Video-Style</span>
+          <span class="card-tag">Vyond-Style</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/Video-course/timemaster" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 06 · Quiz Quest Sales -->
+    <div class="sample-card" data-category="game elearning" style="--card-accent:#c8933a; --card-bg: #f5ecd6;">
+      <div class="card-num">06</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #1a0e00 0%, #3a2000 100%);">
+        <span class="card-thumb-icon">🗡️</span>
+        <span class="card-thumb-label">5 worlds · 27 questions · 6 badges</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Game-Based eLearning</div>
+        <h3 class="card-title">Quiz Quest — Sales Mastery Adventure</h3>
+        <p class="card-desc">Story-driven adventure eLearning with 5 unlockable worlds, rich content sections, 27 questions, a lives system, XP scoring, speed bonuses, 6 badges, and a final boss capstone.</p>
+        <div class="card-tags">
+          <span class="card-tag">Learn &amp; Quiz</span>
+          <span class="card-tag">Gamification</span>
+          <span class="card-tag">Sales Training</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/Sales-game/quiz-quest-sales-elearning" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 07 · SAP FI-AP -->
+    <div class="sample-card" data-category="elearning simulation" style="--card-accent:#2563eb; --card-bg: #e8eff8;">
+      <div class="card-num">07</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #06101e 0%, #0d1e38 100%);">
+        <span class="card-thumb-icon">📊</span>
+        <span class="card-thumb-label">SAP Screen Sim · T-Code Game</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type" style="color: #2563eb;">Hard Skills · ERP Training</div>
+        <h3 class="card-title">SAP FI-AP — Accounts Payable</h3>
+        <p class="card-desc">Corporate hard-skills module with SAP screen simulation, T-code matching game, F110 payment run walkthrough, AP dashboard hotspot, and XP progress system.</p>
+        <div class="card-tags">
+          <span class="card-tag">SAP</span>
+          <span class="card-tag">Simulation</span>
+          <span class="card-tag">Hard Skills</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/SAP/sap_ap_elearning" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 08 · NexusCRM Simulation -->
+    <div class="sample-card" data-category="simulation" style="--card-accent:#38bdf8; --card-bg: #e4f4fc;">
+      <div class="card-num">08</div>
+      <div class="card-thumb" style="background: linear-gradient(135deg, #050a14 0%, #0a1520 100%);">
+        <span class="card-thumb-icon">🖥️</span>
+        <span class="card-thumb-label">View · Try · Test · 3-Mode</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type" style="color: #0284c7;">Software Simulation</div>
+        <h3 class="card-title">NexusCRM — View, Try &amp; Test Simulation</h3>
+        <p class="card-desc">3-mode software simulation: Watch a guided cursor demo (View), practise by clicking highlighted targets (Try), then prove mastery with a timed independent assessment (Test). Modes unlock sequentially.</p>
+        <div class="card-tags">
+          <span class="card-tag">Software Sim</span>
+          <span class="card-tag">View·Try·Test</span>
+          <span class="card-tag">3-Mode Learning</span>
+        </div>
+        <a class="card-launch" href="https://saisathish26.github.io/Simulation/software-simulation-elearning" target="_blank" rel="noopener">
+          <span>Launch Demo</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CONTACT STRIP ── -->
+<div class="contact-strip">
+  <div class="contact-strip-left">
+    <h3>Interested in collaborating?<br>Let's <em>connect.</em></h3>
+    <p>Based in Phoenix, AZ · Authorized to work in the U.S. · Available for full-time, contract, and remote roles in instructional design and e-learning development.</p>
+  </div>
+  <div class="contact-links">
+    <a href="tel:+14802349765" class="contact-link">
+      <span class="contact-link-label">Phone</span>
+      <span class="contact-link-val">+1 (480) 234-9765</span>
+    </a>
+    <a href="/cdn-cgi/l/email-protection#0f7c6e7b67667c676a636a6e7d616661684f68626e6663216c6062" class="contact-link">
+      <span class="contact-link-label">Email</span>
+      <span class="contact-link-val">sathishelearning<br>@gmail.com</span>
+    </a>
+    <a href="https://linkedin.com/in/sathishkumar-eswaramoorthy" target="_blank" rel="noopener" class="contact-link">
+      <span class="contact-link-label">LinkedIn</span>
+      <span class="contact-link-val">sathishkumar-<br>eswaramoorthy</span>
+    </a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span>© 2026 Sathishkumar Eswaramoorthy · Instructional Designer</span>
+  <span>Phoenix, AZ · Authorized to work in the U.S.</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function filterCards(btn, filter) {
+    // Toggle button states
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Show/hide cards
+    document.querySelectorAll('.sample-card').forEach(card => {
+      if (filter === 'all') {
+        card.classList.remove('hidden');
+      } else {
+        const cats = card.getAttribute('data-category') || '';
+        if (cats.includes(filter)) {
