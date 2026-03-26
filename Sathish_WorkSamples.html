@@ -320,6 +320,24 @@
   .card-launch svg { width: 11px; height: 11px; transition: transform 0.2s; }
   .card-launch:hover svg { transform: translateX(3px); }
 
+  /* ── DOC LINKS (storyboard / design doc) ── */
+  .card-doc-links {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    margin-top: 0.65rem;
+  }
+  .card-doc-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid rgba(200,147,58,0.25);
+    background: transparent;
+    transition: all 0.22s;
+  }
+  .card-doc-link svg { width: 10px; height: 10px; flex-shrink: 0; }
+  .card-doc-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,147,58,0.06); }
+
   /* ── FEATURED CARD (full-width) ── */
   .sample-card.featured {
     grid-column: 1 / -1;
@@ -383,7 +401,7 @@
     text-decoration: none; color: var(--cream);
     padding: 1.1rem 1.5rem;
     border: 1px solid rgba(245,240,232,0.1);
-    min-width: 150px;
+    min-width: 170px;
     transition: border-color 0.25s, background 0.25s;
     text-align: center;
   }
@@ -480,8 +498,7 @@
 <div class="filter-section">
   <span class="filter-label">Filter by —</span>
   <button class="filter-btn active" data-filter="all" onclick="filterCards(this, 'all')">All</button>
-  <button class="filter-btn" data-filter="compliance" onclick="filterCards(this, 'compliance')">Compliance</button>
-  <button class="filter-btn" data-filter="elearning" onclick="filterCards(this, 'elearning')">eLearning</button>
+  <button class="filter-btn" data-filter="interactive" onclick="filterCards(this, 'interactive')">Interactive</button>
   <button class="filter-btn" data-filter="game" onclick="filterCards(this, 'game')">Game-Based</button>
   <button class="filter-btn" data-filter="scenario" onclick="filterCards(this, 'scenario')">Scenario / Branching</button>
   <button class="filter-btn" data-filter="simulation" onclick="filterCards(this, 'simulation')">Simulation</button>
@@ -499,7 +516,7 @@
   <div class="samples-grid" id="samplesGrid">
 
     <!-- 01 · GDPR -->
-    <div class="sample-card" data-category="compliance elearning" style="--card-accent:#c8933a; --card-bg: #f3ede0;">
+    <div class="sample-card" data-category="compliance elearning interactive" style="--card-accent:#c8933a; --card-bg: #f3ede0;">
       <div class="card-num">01</div>
       <div class="card-thumb" style="background: linear-gradient(135deg, #1a1008 0%, #2d1e04 100%);">
         <span class="card-thumb-icon">🔒</span>
@@ -510,19 +527,28 @@
         <h3 class="card-title">Data Privacy &amp; GDPR Compliance</h3>
         <p class="card-desc">9-module compliance course covering GDPR principles, data subject rights, breach response, and a 5-question knowledge check — with a personalised downloadable certificate of completion.</p>
         <div class="card-tags">
-          <span class="card-tag">Compliance</span>
-          <span class="card-tag">GDPR</span>
+          <span class="card-tag">Interactive</span>
           <span class="card-tag">Certificate</span>
         </div>
         <a class="card-launch" href="https://saisathish26.github.io/GDPR/gdpr-elearning-course" target="_blank" rel="noopener">
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/12w6OzqIBFZHeDFwoO2FzaJa7U7DExUGZ/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/11_bdhIGYESPyk4t2lV-4yn040rxBHmck/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- 02 · Effective Communication -->
-    <div class="sample-card" data-category="elearning" style="--card-accent:#1a5c5a; --card-bg: #e8f2f2;">
+    <div class="sample-card" data-category="elearning interactive" style="--card-accent:#1a5c5a; --card-bg: #e8f2f2;">
       <div class="card-num">02</div>
       <div class="card-thumb" style="background: linear-gradient(135deg, #0d2e2e 0%, #1a4a48 100%);">
         <span class="card-thumb-icon">🗣️</span>
@@ -534,13 +560,21 @@
         <p class="card-desc">10-slide interactive course featuring hotspot activities, scenario-based quizzes, drag-and-drop interactions, and SBI feedback framework — built in Storyline style.</p>
         <div class="card-tags">
           <span class="card-tag">Interactive</span>
-          <span class="card-tag">Scenario-Based</span>
-          <span class="card-tag">Storyline-Style</span>
         </div>
         <a class="card-launch" href="https://saisathish26.github.io/Effective-Commu/elearning_communication" target="_blank" rel="noopener">
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/16IFn73IigNlyZrxV56UzGPUUMRIecOFu/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1BzRsikoGPqG5wdUiD8ELMQG8_5ns4YHb/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
@@ -564,6 +598,16 @@
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1LDbVAf5OpRmxo_HnpMvSVu7kZLh0cKXl/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1H-o4joY6O5KYxxPAE06V8I5t80u0qAMw/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
@@ -587,6 +631,16 @@
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1hgchvthlTC6wHHJbxW26wC74iGzYfknU/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/10-iZgrnMGpweW5Yl-FUx4XODegT0Dm38/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
@@ -604,12 +658,21 @@
         <div class="card-tags">
           <span class="card-tag">Animation</span>
           <span class="card-tag">Video-Style</span>
-          <span class="card-tag">Vyond-Style</span>
         </div>
         <a class="card-launch" href="https://saisathish26.github.io/Video-course/timemaster" target="_blank" rel="noopener">
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1M3pwTBn1fnu2HrVTQuXgpj2Ij5WqbFzl/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1uQ3TqFIgyHsMcT4gOgSjE04o9pGzloCG/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
@@ -633,6 +696,16 @@
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1gmUUkVXUeOOO26f-dHM-c_d418AINVuv/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1FK1bgnpZSOiCa3jRPYkjz5QywoGuB3OT/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
@@ -656,6 +729,16 @@
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1eAoABMteVEYtDCVnUuLEYzx8mpyxdEno/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1Vd5qy_l1JEAznDZFtNFnR75_V8hJWvP8/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
@@ -679,6 +762,16 @@
           <span>Launch Demo</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <div class="card-doc-links">
+          <a class="card-doc-link" href="https://docs.google.com/document/d/18qddpk8K6pMRcx0ObdvBSnMYt1H1PQpg/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Storyboard
+          </a>
+          <a class="card-doc-link" href="https://docs.google.com/document/d/1VNTwxTHV4xPwIuAEl2_x8y0B75hmzU7Z/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Design Doc
+          </a>
+        </div>
       </div>
     </div>
 
@@ -696,7 +789,7 @@
       <span class="contact-link-label">Phone</span>
       <span class="contact-link-val">+1 (480) 234-9765</span>
     </a>
-    <a href="/cdn-cgi/l/email-protection#0f7c6e7b67667c676a636a6e7d616661684f68626e6663216c6062" class="contact-link">
+    <a href="mailto:sathishelearning@gmail.com" class="contact-link">
       <span class="contact-link-label">Email</span>
       <span class="contact-link-val">sathishelearning<br>@gmail.com</span>
     </a>
@@ -713,7 +806,7 @@
   <span>Phoenix, AZ · Authorized to work in the U.S.</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function filterCards(btn, filter) {
     // Toggle button states
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -724,5 +817,13 @@
       if (filter === 'all') {
         card.classList.remove('hidden');
       } else {
-        const cats = card.getAttribute('data-category') || '';
-        if (cats.includes(filter)) {
+        const categories = card.getAttribute('data-category') || '';
+        if (categories.split(' ').includes(filter)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      }
+    });
+  }
+</script>
