@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Work Samples — Sathishkumar Eswaramoorthy · Instructional Designer</title>
+<title>Live Work Samples — Sathishkumar Eswaramoorthy</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -17,813 +17,452 @@
     --teal-light: #2a8a86;
     --text-muted: #6b6456;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.2rem 4rem;
-    background: rgba(245,240,232,0.94); backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(200,147,58,0.2);
+    background: rgba(245, 240, 232, 0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200, 147, 58, 0.2);
   }
   .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: var(--ink); }
   .nav-logo span { color: var(--gold); }
-  .nav-right { display: flex; align-items: center; gap: 2rem; }
-  .nav-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); }
-  .nav-back { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+  .nav-back { font-family: 'DM Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
   .nav-back:hover { color: var(--gold); }
-  .nav-back svg { width: 12px; height: 12px; }
+  .nav-back::before { content: '←'; }
 
-  /* ── HERO BANNER ── */
-  .page-hero {
-    min-height: 42vh;
-    background: var(--ink);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-    padding-top: 5rem;
-  }
-  .page-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -2px; left: 0; right: 0; height: 60px;
-    background: var(--cream);
-    clip-path: polygon(0 100%, 100% 100%, 100% 0);
-  }
-  .hero-text {
-    padding: 3.5rem 3rem 4.5rem 4rem;
-    display: flex;
+  /* Hamburger */
+  .nav-hamburger {
+    display: none;
     flex-direction: column;
     justify-content: center;
-    position: relative;
-    z-index: 2;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
   }
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold);
-    display: flex; align-items: center; gap: 0.8rem;
-    margin-bottom: 1.2rem;
-    opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: all 0.25s;
   }
-  .hero-eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--gold); }
-  .page-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 5rem);
-    font-weight: 900;
-    line-height: 1.0;
+
+  /* HERO BANNER */
+  .page-hero {
+    padding: 9rem 4rem 5rem;
+    background: var(--ink);
     color: var(--cream);
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-    opacity: 0; animation: fadeUp 0.6s ease 0.22s forwards;
-  }
-  .page-title em { font-style: italic; color: var(--gold); }
-  .hero-sub {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(245,240,232,0.58);
-    max-width: 440px;
-    opacity: 0; animation: fadeUp 0.6s ease 0.34s forwards;
-  }
-  /* Right side decorative panel */
-  .hero-deco {
     position: relative;
     overflow: hidden;
   }
-  .hero-deco-bg {
+  .page-hero::before {
+    content: 'Work';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #1a1008 0%, #0f0e0c 60%);
-  }
-  .hero-deco-initials {
-    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 22vw;
+    font-weight: 900;
+    color: rgba(245,240,232,0.03);
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Playfair Display', serif;
-    font-size: 16rem;
-    font-weight: 900;
-    color: rgba(200,147,58,0.05);
-    letter-spacing: -0.05em;
-    pointer-events: none;
     white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -0.05em;
   }
-  .hero-stat-row {
+  .hero-accent-bar {
     position: absolute;
-    bottom: 3.5rem; left: 3rem;
-    display: flex; gap: 3rem;
-    z-index: 2;
-    opacity: 0; animation: fadeUp 0.6s ease 0.46s forwards;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(to right, var(--gold), var(--teal), transparent);
   }
-  .hstat-num {
+  .page-hero .section-label { color: var(--gold); margin-bottom: 1rem; }
+  .page-hero .section-label::after { background: var(--gold); }
+  .page-hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.4rem; font-weight: 700;
-    color: var(--cream); line-height: 1;
-    display: block;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+    position: relative; z-index: 2;
   }
-  .hstat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em;
-    color: rgba(200,147,58,0.7);
-    margin-top: 0.3rem;
-    display: block;
-  }
-
-  /* ── FILTER BAR ── */
-  .filter-section {
-    background: var(--cream);
-    padding: 2.5rem 4rem 0;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .filter-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--text-muted);
-  }
-  .filter-btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
-    padding: 0.4rem 1rem;
-    border: 1px solid rgba(200,147,58,0.25);
-    background: transparent;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
-  .filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-
-  /* ── GRID ── */
-  .samples-section {
-    padding: 3rem 4rem 6rem;
-    background: var(--cream);
-  }
-  .samples-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
+  .page-hero h1 em { font-style: italic; color: var(--gold); }
+  .page-hero p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.65);
+    max-width: 580px;
+    font-style: italic;
+    position: relative; z-index: 2;
   }
 
-  /* ── SAMPLE CARD ── */
-  .sample-card {
-    background: #fff;
-    border: 1px solid rgba(200,147,58,0.12);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.28s cubic-bezier(.2,0,.2,1), box-shadow 0.28s;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateY(24px);
-    animation: cardIn 0.5s ease forwards;
-  }
-  .sample-card:nth-child(1) { animation-delay: 0.05s; }
-  .sample-card:nth-child(2) { animation-delay: 0.12s; }
-  .sample-card:nth-child(3) { animation-delay: 0.19s; }
-  .sample-card:nth-child(4) { animation-delay: 0.26s; }
-  .sample-card:nth-child(5) { animation-delay: 0.33s; }
-  .sample-card:nth-child(6) { animation-delay: 0.40s; }
-  .sample-card:nth-child(7) { animation-delay: 0.47s; }
-  .sample-card:nth-child(8) { animation-delay: 0.54s; }
+  /* SECTION */
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+  .section-label::after { content: ''; flex: 1; max-width: 4rem; height: 1px; background: var(--gold); }
 
-  @keyframes cardIn {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* LIVE DEMOS */
+  #live-demos { background: var(--warm); padding: 6rem 4rem; }
+  #live-demos .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 0.8rem; }
+  .demos-intro { font-size: 0.95rem; line-height: 1.75; color: var(--text-muted); max-width: 58ch; margin-bottom: 3rem; font-style: italic; }
+  .demos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 
-  .sample-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 48px rgba(15,14,12,0.13);
-  }
+  .demo-card { background: var(--cream); border: 1px solid rgba(200, 147, 58, 0.15); padding: 2.2rem 2rem 1.8rem; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; display: flex; flex-direction: column; }
+  .demo-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+  .demo-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,14,12,0.1); border-color: rgba(200,147,58,0.4); }
+  .demo-card:hover::before { transform: scaleX(1); }
+  .demo-num { position: absolute; top: 1.2rem; right: 1.4rem; font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: rgba(15,14,12,0.04); line-height: 1; pointer-events: none; }
+  .demo-type { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+  .demo-type::before { content: ''; width: 14px; height: 1px; background: var(--gold); display: inline-block; }
+  .demo-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+  .demo-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.3; }
+  .demo-desc { font-size: 0.84rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.2rem; flex: 1; }
+  .demo-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.4rem; }
+  .demo-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.22rem 0.55rem; background: var(--ink); color: var(--cream); text-transform: uppercase; }
+  .demo-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 0.6rem 1.1rem; border: 1.5px solid var(--ink); transition: all 0.25s; margin-top: auto; width: fit-content; }
+  .demo-btn:hover { background: var(--ink); color: var(--cream); transform: translateX(3px); }
+  .demo-btn svg { width: 12px; height: 12px; }
 
-  /* Top accent bar — coloured by category */
-  .sample-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--card-accent, var(--gold));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s;
-  }
-  .sample-card:hover::before { transform: scaleX(1); }
+  /* DOC LINKS */
+  .demo-doc-links { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.65rem; }
+  .demo-doc-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.4rem 0.75rem; border: 1px solid rgba(200,147,58,0.25); background: transparent; transition: all 0.22s; }
+  .demo-doc-link svg { width: 10px; height: 10px; flex-shrink: 0; }
+  .demo-doc-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,147,58,0.06); }
 
-  /* Card number watermark */
-  .card-num {
-    position: absolute; top: 1rem; right: 1.2rem;
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem; font-weight: 900;
-    color: rgba(15,14,12,0.04);
-    line-height: 1; pointer-events: none;
+  /* FOOTER */
+  footer { background: #0a0907; padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; color: rgba(245, 240, 232, 0.35); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1023px) {
+    nav { padding: 1rem 2rem; }
+    .page-hero { padding: 7rem 2rem 4rem; }
+    #live-demos { padding: 4.5rem 2rem; }
+    .demos-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    footer { padding: 1.5rem 2rem; }
   }
 
-  /* Thumbnail / preview area */
-  .card-thumb {
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--card-bg, #f7f2ea);
-    position: relative;
-    overflow: hidden;
-  }
-  .card-thumb-icon {
-    font-size: 4rem;
-    line-height: 1;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
-    transition: transform 0.3s;
-  }
-  .sample-card:hover .card-thumb-icon {
-    transform: scale(1.1) translateY(-3px);
-  }
-  .card-thumb-label {
-    position: absolute; bottom: 0.7rem; right: 0.9rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    background: rgba(0,0,0,0.35);
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
+  @media (max-width: 767px) {
+    nav { padding: 0.9rem 1.25rem; }
+    .nav-hamburger { display: flex; }
+    .page-hero { padding: 6rem 1.25rem 3.5rem; }
+    #live-demos { padding: 3.5rem 1.25rem; }
+    .demos-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .demo-btn { width: 100%; justify-content: center; }
+    footer { padding: 1.25rem; flex-direction: column; gap: 0.4rem; text-align: center; }
   }
 
-  /* Card body */
-  .card-body {
-    padding: 1.6rem 1.6rem 1.4rem;
-    display: flex; flex-direction: column; flex: 1;
-  }
-  .card-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--card-accent, var(--gold));
-    display: flex; align-items: center; gap: 0.5rem;
-    margin-bottom: 0.7rem;
-  }
-  .card-type::before { content: ''; width: 12px; height: 1px; background: currentColor; display: inline-block; }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 0.7rem;
-    color: var(--ink);
-  }
-  .card-desc {
-    font-size: 0.83rem; line-height: 1.72; color: var(--text-muted);
-    margin-bottom: 1.2rem; flex: 1;
-  }
-  .card-tags {
-    display: flex; flex-wrap: wrap; gap: 0.35rem;
-    margin-bottom: 1.3rem;
-  }
-  .card-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase;
-    padding: 0.22rem 0.55rem;
-    background: var(--warm); color: var(--text-muted);
-    border: 1px solid rgba(200,147,58,0.15);
-    transition: all 0.2s;
-  }
-  .sample-card:hover .card-tag { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-
-  /* Launch button */
-  .card-launch {
-    display: inline-flex; align-items: center; gap: 0.55rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--ink); text-decoration: none;
-    padding: 0.65rem 1.1rem;
-    border: 1.5px solid var(--ink);
-    transition: all 0.25s;
-    width: fit-content;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-launch::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--ink);
-    transform: translateX(-101%);
-    transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-    z-index: 0;
-  }
-  .card-launch:hover::after { transform: translateX(0); }
-  .card-launch span, .card-launch svg { position: relative; z-index: 1; }
-  .card-launch:hover span, .card-launch:hover svg { color: var(--cream); }
-  .card-launch svg { width: 11px; height: 11px; transition: transform 0.2s; }
-  .card-launch:hover svg { transform: translateX(3px); }
-
-  /* ── DOC LINKS (storyboard / design doc) ── */
-  .card-doc-links {
-    display: flex; gap: 0.5rem; flex-wrap: wrap;
-    margin-top: 0.65rem;
-  }
-  .card-doc-link {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-muted); text-decoration: none;
-    padding: 0.4rem 0.75rem;
-    border: 1px solid rgba(200,147,58,0.25);
-    background: transparent;
-    transition: all 0.22s;
-  }
-  .card-doc-link svg { width: 10px; height: 10px; flex-shrink: 0; }
-  .card-doc-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,147,58,0.06); }
-
-  /* ── FEATURED CARD (full-width) ── */
-  .sample-card.featured {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    min-height: 240px;
-  }
-  .sample-card.featured .card-thumb {
-    width: 340px; height: auto; flex-shrink: 0;
-    border-radius: 0;
-  }
-  .sample-card.featured .card-thumb-icon { font-size: 5rem; }
-  .sample-card.featured .card-body { padding: 2.2rem 2.4rem; }
-  .sample-card.featured .card-title { font-size: 1.4rem; }
-  .featured-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
-    background: var(--gold); color: var(--ink);
-    padding: 0.2rem 0.55rem;
-    margin-bottom: 0.7rem;
-    display: inline-block;
+  @media (max-width: 479px) {
+    nav { padding: 0.85rem 1rem; }
+    .page-hero { padding: 5.5rem 1rem 3rem; }
+    #live-demos { padding: 3rem 1rem; }
+    .demo-card { padding: 1.75rem 1.5rem 1.4rem; }
+    footer { font-size: 0.6rem; padding: 1rem; }
   }
 
-  /* ── SECTION DIVIDER ── */
-  .section-divider {
-    padding: 0 4rem 1.5rem;
-    display: flex; align-items: center; gap: 1.2rem;
-  }
-  .section-divider-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
-    color: var(--gold); white-space: nowrap;
-    display: flex; align-items: center; gap: 0.7rem;
-  }
-  .section-divider-label::after { content: ''; width: 2.5rem; height: 1px; background: var(--gold); }
-  .section-divider hr { flex: 1; border: none; border-top: 1px solid rgba(200,147,58,0.15); }
-
-  /* ── CONTACT STRIP ── */
-  .contact-strip {
-    background: var(--ink);
-    padding: 4rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: center;
-  }
-  .contact-strip-left h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700;
-    color: var(--cream); margin-bottom: 0.5rem;
-  }
-  .contact-strip-left h3 em { font-style: italic; color: var(--gold); }
-  .contact-strip-left p {
-    font-size: 0.9rem; line-height: 1.7;
-    color: rgba(245,240,232,0.5);
-  }
-  .contact-links {
-    display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: flex-end;
-  }
-  .contact-link {
-    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-    text-decoration: none; color: var(--cream);
-    padding: 1.1rem 1.5rem;
-    border: 1px solid rgba(245,240,232,0.1);
-    min-width: 170px;
-    transition: border-color 0.25s, background 0.25s;
-    text-align: center;
-  }
-  .contact-link:hover { border-color: var(--gold); background: rgba(200,147,58,0.08); }
-  .contact-link-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--gold);
-  }
-  .contact-link-val { font-size: 0.8rem; color: rgba(245,240,232,0.75); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #0a0907;
-    padding: 1.5rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-    color: rgba(245,240,232,0.3);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem; letter-spacing: 0.1em;
+  @media (hover: none) {
+    .demo-card:hover { transform: none; box-shadow: none; }
+    .demo-card:hover::before { transform: scaleX(0); }
   }
 
-  /* ── HIDDEN CARD (for filter) ── */
-  .sample-card.hidden {
-    display: none;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1100px) {
-    .samples-grid { grid-template-columns: repeat(2, 1fr); }
-    .sample-card.featured { flex-direction: column; }
-    .sample-card.featured .card-thumb { width: 100%; height: 180px; }
-  }
-  @media (max-width: 750px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-label { display: none; }
-    .page-hero { grid-template-columns: 1fr; }
-    .hero-deco { display: none; }
-    .filter-section, .samples-section, .section-divider { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .samples-grid { grid-template-columns: 1fr; }
-    .sample-card.featured { grid-column: auto; }
-    .contact-strip { grid-template-columns: 1fr; }
-    .contact-links { justify-content: flex-start; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    .hero-text { padding: 3rem 1.5rem 2.5rem; }
-    .hero-stat-row { position: static; margin-top: 1.5rem; }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .page-hero h1 { opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
+  .page-hero p { opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards; }
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo">Sathish<span>.</span></a>
-  <div class="nav-right">
-    <span class="nav-label">Interactive Portfolio · Work Samples</span>
-
-  </div>
+  <a class="nav-logo" href="#">Sathish<span>.</span></a>
+  <a class="nav-back" href="Sathish_PF_FL.html">Back to Portfolio</a>
 </nav>
 
-<!-- ── HERO ── -->
-<section class="page-hero">
-  <div class="hero-text">
-    <div class="hero-eyebrow">Live Work Samples · Interactive Portfolio</div>
-    <h1 class="page-title">Work<br><em>Samples.</em></h1>
-    <p class="hero-sub">Eight live e-learning demos — each showcasing a distinct instructional design methodology. Click any card to experience it directly in your browser.</p>
-  </div>
-  <div class="hero-deco">
-    <div class="hero-deco-bg"></div>
-    <div class="hero-deco-initials">SE</div>
-    <div class="hero-stat-row">
-      <div>
-        <span class="hstat-num">8</span>
-        <span class="hstat-label">Live Demos</span>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="hero-accent-bar"></div>
+  <div class="section-label">Interactive Portfolio</div>
+  <h1>Live <em>Work</em><br>Samples</h1>
+  <p>Click any sample to experience it live in your browser — no download required. Each project demonstrates a distinct instructional design approach and methodology. Storyboards, design documents, and job aids are also included in each card for you to explore.</p>
+</div>
+
+<!-- LIVE DEMOS GRID -->
+<section id="live-demos">
+  <div class="demos-grid">
+
+    <div class="demo-card">
+      <div class="demo-num">01</div>
+      <div class="demo-type">Compliance eLearning</div>
+      <span class="demo-icon">🔒</span>
+      <div class="demo-title">Data Privacy &amp; GDPR Compliance</div>
+      <p class="demo-desc">9-module compliance course covering GDPR principles, data subject rights, breach response, and a 5-question knowledge check — with a personalised downloadable certificate of completion.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Interactive</span><span class="demo-tag">Certificate</span>
       </div>
-      <div>
-        <span class="hstat-num">6</span>
-        <span class="hstat-label">Methodologies</span>
-      </div>
-      <div>
-        <span class="hstat-num">10+</span>
-        <span class="hstat-label">Years Experience</span>
+      <a class="demo-btn" href="https://saisathish26.github.io/GDPR/gdpr-elearning-course" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/12w6OzqIBFZHeDFwoO2FzaJa7U7DExUGZ/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/11_bdhIGYESPyk4t2lV-4yn040rxBHmck/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1ZqoNc4FORFL6VpQwDkd3EnwXj0lkG0Bq/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
       </div>
     </div>
+
+    <div class="demo-card">
+      <div class="demo-num">02</div>
+      <div class="demo-type">eLearning Course</div>
+      <span class="demo-icon">🗣️</span>
+      <div class="demo-title">Effective Communication at Work</div>
+      <p class="demo-desc">10-slide interactive course featuring hotspot activities, scenario-based quizzes, drag-and-drop interactions, and SBI feedback framework.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Interactive</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/Effective-Commu/elearning_communication" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/16IFn73IigNlyZrxV56UzGPUUMRIecOFu/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1BzRsikoGPqG5wdUiD8ELMQG8_5ns4YHb/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1YqqFW1M6kqm3VG2OK8Schq8hwKx21Q1t/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-num">03</div>
+      <div class="demo-type">Game-Based Learning</div>
+      <span class="demo-icon">🎮</span>
+      <div class="demo-title">CyberQuest Security Adventure</div>
+      <p class="demo-desc">RPG-style cybersecurity awareness game with 5 challenge zones, inventory system, boss battle mechanics, and a 12-trophy achievement system.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Gamification</span><span class="demo-tag">Cybersecurity</span><span class="demo-tag">RPG-Style</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/Game-based/cyberquest_game" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1LDbVAf5OpRmxo_HnpMvSVu7kZLh0cKXl/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1H-o4joY6O5KYxxPAE06V8I5t80u0qAMw/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1fb2GR4vJ9gYBmSXC6e3soXrllnmAO7Tq/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-num">04</div>
+      <div class="demo-type">Scenario-Based</div>
+      <span class="demo-icon">⚖️</span>
+      <div class="demo-title">The Right Call — Workplace Ethics</div>
+      <p class="demo-desc">Branching scenario visual novel with 5 ethical dilemmas, a Trust Meter mechanic, character illustrations, and a personalised certificate of completion.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Branching</span><span class="demo-tag">Ethics</span><span class="demo-tag">Visual Novel</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/Scenario-based/ethics_scenario_elearning" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1hgchvthlTC6wHHJbxW26wC74iGzYfknU/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/10-iZgrnMGpweW5Yl-FUx4XODegT0Dm38/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1SiDHmBj4pT9zoS_1GCpSGgr4Ni0opEDn/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-num">05</div>
+      <div class="demo-type">Software Simulation</div>
+      <span class="demo-icon">🖥️</span>
+      <div class="demo-title">NexusCRM — View, Try &amp; Test Simulation</div>
+      <p class="demo-desc">3-mode software simulation: Watch a guided cursor demo (View), practise by clicking highlighted targets (Try), then prove mastery with a timed independent assessment (Test). Modes unlock sequentially.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Software Sim</span><span class="demo-tag">View·Try·Test</span><span class="demo-tag">3-Mode Learning</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/Simulation/software-simulation-elearning" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/18qddpk8K6pMRcx0ObdvBSnMYt1H1PQpg/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1VNTwxTHV4xPwIuAEl2_x8y0B75hmzU7Z/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1ZaBk4LAMQVVjgpYEtw6noJiYwa8CZRW_/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-num">06</div>
+      <div class="demo-type">Game-Based eLearning</div>
+      <span class="demo-icon">🗡️</span>
+      <div class="demo-title">Quiz Quest — Sales Mastery Adventure</div>
+      <p class="demo-desc">Story-driven adventure eLearning with 5 unlockable worlds, rich content sections learners must read before each quiz, 27 questions, a lives system, XP scoring, speed bonuses, 6 badges, and a final boss capstone.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Learn &amp; Quiz</span><span class="demo-tag">Gamification</span><span class="demo-tag">Sales Training</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/Sales-game/quiz-quest-sales-elearning" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1gmUUkVXUeOOO26f-dHM-c_d418AINVuv/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1FK1bgnpZSOiCa3jRPYkjz5QywoGuB3OT/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/12WH9yn4pJYie1w66-RN52C8eO713qLgS/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-num">07</div>
+      <div class="demo-type">Hard Skills · ERP Training</div>
+      <span class="demo-icon">📊</span>
+      <div class="demo-title">SAP FI-AP Accounts Payable</div>
+      <p class="demo-desc">Corporate hard-skills module with SAP screen simulation, T-code matching game, F110 payment run walkthrough, AP dashboard hotspot, and XP progress system.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">SAP</span><span class="demo-tag">Simulation</span><span class="demo-tag">Hard Skills</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/SAP/sap_ap_elearning" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1eAoABMteVEYtDCVnUuLEYzx8mpyxdEno/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1Vd5qy_l1JEAznDZFtNFnR75_V8hJWvP8/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1d4mg0Z4S9I1IrIsZhZTMAjRtxhPNYdqS/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-num">08</div>
+      <div class="demo-type">Animated Video Course</div>
+      <span class="demo-icon">👑</span>
+      <div class="demo-title">The Art of Leadership</div>
+      <p class="demo-desc">Animated eLearning course exploring how great leaders inspire, empower, and transform — covering leadership qualities: Vision, Passion, Trust, Insight, Action, and Focus, with full playback controls.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Animation</span><span class="demo-tag">Leadership</span><span class="demo-tag">Video-Style</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/Leader/leadership" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1Rwv3qeYOAFD2Q9XzDaf9NqzmeYwnv3wj/edit?usp=sharing&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1egFpcqrCTzN0PqdJ0PKJ1WDBkMlQ1_22/edit?usp=sharing&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1grVG0dQXs5awDusrh4iYplI4APDDaiz-/edit?usp=sharing&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-num">09</div>
+      <div class="demo-type">Animated Video Course</div>
+      <span class="demo-icon">🎬</span>
+      <div class="demo-title">Time Management Mastery</div>
+      <p class="demo-desc">Animated eLearning video with characters, Web Audio background music, 9 animated scenes, and full playback and scene navigation controls.</p>
+      <div class="demo-tags">
+        <span class="demo-tag">Animation</span><span class="demo-tag">Video-Style</span>
+      </div>
+      <a class="demo-btn" href="https://saisathish26.github.io/Video-course/timemaster" target="_blank" rel="noopener">
+        Launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="demo-doc-links">
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1M3pwTBn1fnu2HrVTQuXgpj2Ij5WqbFzl/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Storyboard
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1uQ3TqFIgyHsMcT4gOgSjE04o9pGzloCG/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Design Doc
+        </a>
+        <a class="demo-doc-link" href="https://docs.google.com/document/d/1m4P4CQKGPW8NH0cacX8segFkpBKlkNy0/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Job Aid
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ── FILTER BAR ── -->
-<div class="filter-section">
-  <span class="filter-label">Filter by —</span>
-  <button class="filter-btn active" data-filter="all" onclick="filterCards(this, 'all')">All</button>
-  <button class="filter-btn" data-filter="interactive" onclick="filterCards(this, 'interactive')">Interactive</button>
-  <button class="filter-btn" data-filter="game" onclick="filterCards(this, 'game')">Game-Based</button>
-  <button class="filter-btn" data-filter="scenario" onclick="filterCards(this, 'scenario')">Scenario / Branching</button>
-  <button class="filter-btn" data-filter="simulation" onclick="filterCards(this, 'simulation')">Simulation</button>
-  <button class="filter-btn" data-filter="video" onclick="filterCards(this, 'video')">Video-Style</button>
-</div>
-
-<!-- ── SAMPLES GRID ── -->
-<div class="samples-section">
-
-  <div class="section-divider">
-    <span class="section-divider-label">Interactive Portfolio</span>
-    <hr>
-  </div>
-
-  <div class="samples-grid" id="samplesGrid">
-
-    <!-- 01 · GDPR -->
-    <div class="sample-card" data-category="compliance elearning interactive" style="--card-accent:#c8933a; --card-bg: #f3ede0;">
-      <div class="card-num">01</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #1a1008 0%, #2d1e04 100%);">
-        <span class="card-thumb-icon">🔒</span>
-        <span class="card-thumb-label">9 modules · Certificate</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type">Compliance eLearning</div>
-        <h3 class="card-title">Data Privacy &amp; GDPR Compliance</h3>
-        <p class="card-desc">9-module compliance course covering GDPR principles, data subject rights, breach response, and a 5-question knowledge check — with a personalised downloadable certificate of completion.</p>
-        <div class="card-tags">
-          <span class="card-tag">Interactive</span>
-          <span class="card-tag">Certificate</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/GDPR/gdpr-elearning-course" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/12w6OzqIBFZHeDFwoO2FzaJa7U7DExUGZ/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/11_bdhIGYESPyk4t2lV-4yn040rxBHmck/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 02 · Effective Communication -->
-    <div class="sample-card" data-category="elearning interactive" style="--card-accent:#1a5c5a; --card-bg: #e8f2f2;">
-      <div class="card-num">02</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #0d2e2e 0%, #1a4a48 100%);">
-        <span class="card-thumb-icon">🗣️</span>
-        <span class="card-thumb-label">10 slides · Hotspots</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type" style="color: #1a5c5a;">eLearning Course</div>
-        <h3 class="card-title">Effective Communication at Work</h3>
-        <p class="card-desc">10-slide interactive course featuring hotspot activities, scenario-based quizzes, drag-and-drop interactions, and SBI feedback framework — built in Storyline style.</p>
-        <div class="card-tags">
-          <span class="card-tag">Interactive</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/Effective-Commu/elearning_communication" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/16IFn73IigNlyZrxV56UzGPUUMRIecOFu/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1BzRsikoGPqG5wdUiD8ELMQG8_5ns4YHb/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 03 · CyberQuest -->
-    <div class="sample-card" data-category="game" style="--card-accent:#b84c2a; --card-bg: #f2e8e3;">
-      <div class="card-num">03</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #1a0800 0%, #3d1200 100%);">
-        <span class="card-thumb-icon">🎮</span>
-        <span class="card-thumb-label">5 zones · 12 trophies</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type" style="color: #b84c2a;">Game-Based Learning</div>
-        <h3 class="card-title">CyberQuest Security Adventure</h3>
-        <p class="card-desc">RPG-style cybersecurity awareness game with 5 challenge zones, inventory system, boss battle mechanics, and a 12-trophy achievement system.</p>
-        <div class="card-tags">
-          <span class="card-tag">Gamification</span>
-          <span class="card-tag">Cybersecurity</span>
-          <span class="card-tag">RPG-Style</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/Game-based/cyberquest_game" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1LDbVAf5OpRmxo_HnpMvSVu7kZLh0cKXl/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1H-o4joY6O5KYxxPAE06V8I5t80u0qAMw/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 04 · Workplace Ethics -->
-    <div class="sample-card" data-category="scenario elearning" style="--card-accent:#6b3fa0; --card-bg: #f0eaf8;">
-      <div class="card-num">04</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #1a0930 0%, #2d1050 100%);">
-        <span class="card-thumb-icon">⚖️</span>
-        <span class="card-thumb-label">5 dilemmas · Trust Meter</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type" style="color: #6b3fa0;">Scenario-Based</div>
-        <h3 class="card-title">The Right Call — Workplace Ethics</h3>
-        <p class="card-desc">Branching scenario visual novel with 5 ethical dilemmas, a Trust Meter mechanic, CSS character illustrations, and a personalised certificate of completion.</p>
-        <div class="card-tags">
-          <span class="card-tag">Branching</span>
-          <span class="card-tag">Ethics</span>
-          <span class="card-tag">Visual Novel</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/Scenario-based/ethics_scenario_elearning" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1hgchvthlTC6wHHJbxW26wC74iGzYfknU/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/10-iZgrnMGpweW5Yl-FUx4XODegT0Dm38/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 05 · Time Management -->
-    <div class="sample-card" data-category="video elearning" style="--card-accent:#1a5c5a; --card-bg: #e4f0ef;">
-      <div class="card-num">05</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #0a2020 0%, #143030 100%);">
-        <span class="card-thumb-icon">🎬</span>
-        <span class="card-thumb-label">9 scenes · Audio</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type" style="color: #1a5c5a;">Animated Video Course</div>
-        <h3 class="card-title">Time Management Mastery</h3>
-        <p class="card-desc">Vyond-style animated eLearning video with CSS characters, Web Audio background music, 9 animated scenes, and full playback and scene navigation controls.</p>
-        <div class="card-tags">
-          <span class="card-tag">Animation</span>
-          <span class="card-tag">Video-Style</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/Video-course/timemaster" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1M3pwTBn1fnu2HrVTQuXgpj2Ij5WqbFzl/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1uQ3TqFIgyHsMcT4gOgSjE04o9pGzloCG/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 06 · Quiz Quest Sales -->
-    <div class="sample-card" data-category="game elearning" style="--card-accent:#c8933a; --card-bg: #f5ecd6;">
-      <div class="card-num">06</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #1a0e00 0%, #3a2000 100%);">
-        <span class="card-thumb-icon">🗡️</span>
-        <span class="card-thumb-label">5 worlds · 27 questions · 6 badges</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type">Game-Based eLearning</div>
-        <h3 class="card-title">Quiz Quest — Sales Mastery Adventure</h3>
-        <p class="card-desc">Story-driven adventure eLearning with 5 unlockable worlds, rich content sections, 27 questions, a lives system, XP scoring, speed bonuses, 6 badges, and a final boss capstone.</p>
-        <div class="card-tags">
-          <span class="card-tag">Learn &amp; Quiz</span>
-          <span class="card-tag">Gamification</span>
-          <span class="card-tag">Sales Training</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/Sales-game/quiz-quest-sales-elearning" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1gmUUkVXUeOOO26f-dHM-c_d418AINVuv/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1FK1bgnpZSOiCa3jRPYkjz5QywoGuB3OT/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 07 · SAP FI-AP -->
-    <div class="sample-card" data-category="elearning simulation" style="--card-accent:#2563eb; --card-bg: #e8eff8;">
-      <div class="card-num">07</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #06101e 0%, #0d1e38 100%);">
-        <span class="card-thumb-icon">📊</span>
-        <span class="card-thumb-label">SAP Screen Sim · T-Code Game</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type" style="color: #2563eb;">Hard Skills · ERP Training</div>
-        <h3 class="card-title">SAP FI-AP — Accounts Payable</h3>
-        <p class="card-desc">Corporate hard-skills module with SAP screen simulation, T-code matching game, F110 payment run walkthrough, AP dashboard hotspot, and XP progress system.</p>
-        <div class="card-tags">
-          <span class="card-tag">SAP</span>
-          <span class="card-tag">Simulation</span>
-          <span class="card-tag">Hard Skills</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/SAP/sap_ap_elearning" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1eAoABMteVEYtDCVnUuLEYzx8mpyxdEno/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1Vd5qy_l1JEAznDZFtNFnR75_V8hJWvP8/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 08 · NexusCRM Simulation -->
-    <div class="sample-card" data-category="simulation" style="--card-accent:#38bdf8; --card-bg: #e4f4fc;">
-      <div class="card-num">08</div>
-      <div class="card-thumb" style="background: linear-gradient(135deg, #050a14 0%, #0a1520 100%);">
-        <span class="card-thumb-icon">🖥️</span>
-        <span class="card-thumb-label">View · Try · Test · 3-Mode</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type" style="color: #0284c7;">Software Simulation</div>
-        <h3 class="card-title">NexusCRM — View, Try &amp; Test Simulation</h3>
-        <p class="card-desc">3-mode software simulation: Watch a guided cursor demo (View), practise by clicking highlighted targets (Try), then prove mastery with a timed independent assessment (Test). Modes unlock sequentially.</p>
-        <div class="card-tags">
-          <span class="card-tag">Software Sim</span>
-          <span class="card-tag">View·Try·Test</span>
-          <span class="card-tag">3-Mode Learning</span>
-        </div>
-        <a class="card-launch" href="https://saisathish26.github.io/Simulation/software-simulation-elearning" target="_blank" rel="noopener">
-          <span>Launch Demo</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div class="card-doc-links">
-          <a class="card-doc-link" href="https://docs.google.com/document/d/18qddpk8K6pMRcx0ObdvBSnMYt1H1PQpg/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Storyboard
-          </a>
-          <a class="card-doc-link" href="https://docs.google.com/document/d/1VNTwxTHV4xPwIuAEl2_x8y0B75hmzU7Z/edit?usp=drive_link&ouid=102552841328643080342&rtpof=true&sd=true" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Design Doc
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ── CONTACT STRIP ── -->
-<div class="contact-strip">
-  <div class="contact-strip-left">
-    <h3>Interested in collaborating?<br>Let's <em>connect.</em></h3>
-    <p>Based in Phoenix, AZ · Authorized to work in the U.S. · Available for full-time, contract, and remote roles in instructional design and e-learning development.</p>
-  </div>
-  <div class="contact-links">
-    <a href="tel:+14802349765" class="contact-link">
-      <span class="contact-link-label">Phone</span>
-      <span class="contact-link-val">+1 (480) 234-9765</span>
-    </a>
-    <a href="mailto:sathishelearning@gmail.com" class="contact-link">
-      <span class="contact-link-label">Email</span>
-      <span class="contact-link-val">sathishelearning<br>@gmail.com</span>
-    </a>
-    <a href="https://linkedin.com/in/sathishkumar-eswaramoorthy" target="_blank" rel="noopener" class="contact-link">
-      <span class="contact-link-label">LinkedIn</span>
-      <span class="contact-link-val">sathishkumar-<br>eswaramoorthy</span>
-    </a>
-  </div>
-</div>
-
-<!-- ── FOOTER ── -->
 <footer>
   <span>© 2026 Sathishkumar Eswaramoorthy · Instructional Designer</span>
   <span>Phoenix, AZ · Authorized to work in the U.S.</span>
 </footer>
 
-<script>
-  function filterCards(btn, filter) {
-    // Toggle button states
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // Show/hide cards
-    document.querySelectorAll('.sample-card').forEach(card => {
-      if (filter === 'all') {
-        card.classList.remove('hidden');
-      } else {
-        const categories = card.getAttribute('data-category') || '';
-        if (categories.split(' ').includes(filter)) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      }
-    });
-  }
-</script>
+</body>
+</html>
