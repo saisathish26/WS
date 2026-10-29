@@ -98,7 +98,7 @@ footer a{color:var(--teal);text-decoration:none}
   <span class="eyebrow"><span class="pulse"></span>Live &amp; Interactive</span>
   <h1>Live Work <em>Samples</em></h1>
   <p class="sub">Working projects you can open and explore right now &mdash; ten interactive eLearning experiences and six AI applications. Where an AI app is hosted online you can launch it live; every AI app also includes a walkthrough demo.</p>
-  <p class="author">by <b>Sathishkumar Eswaramoorthy</b> &middot; Instructional Designer &middot; AI Trainer &middot; AI-Augmented Learning &amp; Data Analytics Specialist</p>
+  <p class="author">Instructional Designer &middot; AI Trainer &middot; AI-Augmented Learning &amp; Data Analytics Specialist</p>
   <div class="stats">
     <div class="stat"><b>16</b><span>Live Demos</span></div>
     <div class="stat"><b>10</b><span>eLearning</span></div>
@@ -141,7 +141,7 @@ DEMOS.forEach((d,i)=>{
    <div class="body"><div class="type"><span class="kind ${isAI?'ai':'el'}">${isAI?'AI App':'eLearning'}</span>${esc(d.type)}</div><h3>${esc(d.title)}</h3>
    <p class="desc">${esc(d.desc)}</p>${d.desc.length>170?'<button class="more">Read more</button>':''}
    <div class="tags">${d.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
-   <div class="actions"><button class="btn s" data-i="${i}">${d.launch?(isAI?'Walkthrough':'Preview'):'Watch Demo'}</button>${d.launch?`<a class="btn p" href="${d.launch}" target="_blank" rel="noopener">Launch ${arrow}</a>`:`<a class="btn p" href="${d.view}" target="_blank" rel="noopener">Open ${arrow}</a>`}</div>${d.docs?`<div class="docs"><div class="docs-h">Project documents</div><div class="docs-row">${d.docs.map(x=>`<a class="doc" href="${esc(x.url)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>${esc(x.label)}</a>`).join('')}</div></div>`:''}</div>`;
+   <div class="actions"><button class="btn ${d.launch?'s':'p'}" data-i="${i}">${d.launch?(isAI?'Walkthrough':'Preview'):'&#9654; Watch Demo'}</button>${d.launch?`<a class="btn p" href="${d.launch}" target="_blank" rel="noopener">Launch ${arrow}</a>`:''}</div>${d.docs?`<div class="docs"><div class="docs-h">Project documents</div><div class="docs-row">${d.docs.map(x=>`<a class="doc" href="${esc(x.url)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>${esc(x.label)}</a>`).join('')}</div></div>`:''}</div>`;
   grid.appendChild(el);
 });
 grid.addEventListener('click',e=>{
